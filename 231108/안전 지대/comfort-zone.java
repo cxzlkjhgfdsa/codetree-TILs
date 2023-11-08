@@ -27,7 +27,7 @@ public class Main {
             }
         }
 
-        int k = 0;
+        int k = 1;
         int area = 0;
 
         for(int h = 1; h <= max; h++){
