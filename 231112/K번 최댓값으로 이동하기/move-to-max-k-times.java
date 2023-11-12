@@ -50,7 +50,13 @@ public class Main {
                     
                     if(map[p.x][p.y] == max){
                         if(p.x <= maxR){
-                            if(p.y <= maxC){
+                            
+                            if(p.x == maxR){
+                                if(p.y <= maxC){
+                                    maxR = p.x;
+                                    maxC = p.y;
+                                }
+                            }else{
                                 maxR = p.x;
                                 maxC = p.y;
                             }
