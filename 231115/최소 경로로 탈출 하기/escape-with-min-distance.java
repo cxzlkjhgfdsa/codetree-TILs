@@ -29,7 +29,7 @@ public class Main {
         que.add(new Pos(0, 0, 0));
         visited[0][0] = true;
 
-        int ans = 0;
+        int ans = -1;
 
         while(!que.isEmpty()){
             
