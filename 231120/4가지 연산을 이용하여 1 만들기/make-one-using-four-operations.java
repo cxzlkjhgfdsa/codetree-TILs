@@ -22,24 +22,30 @@ public class Main {
 
             int an = num.n - 1;
             if(!visited[an]){
+                visited[an] = true;
                 que.add(new Num(an , num.cnt+1));
             }
 
             int bn = num.n + 1;
             if(!visited[bn]){
+                visited[bn] = true
                 que.add(new Num(bn, num.cnt+1));
             }
 
             if(num.n % 2 == 0){
                 int cn = num.n/2;
-                if(!visited[cn])
+                if(!visited[cn]){
+                    visited[cn] = true;
                     que.add(new Num(cn, num.cnt+1));
+                }
             }
 
             if(num.n % 3 == 0){
                 int dn = num.n/3;
-                if(!visited[dn])
+                if(!visited[dn]){
+                    visited[dn] = true;
                     que.add(new Num(dn, num.cnt+1));
+                }
             }
 
         }
