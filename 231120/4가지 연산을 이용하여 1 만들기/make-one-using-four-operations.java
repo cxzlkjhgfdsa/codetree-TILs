@@ -28,7 +28,7 @@ public class Main {
 
             int bn = num.n + 1;
             if(!visited[bn]){
-                visited[bn] = true
+                visited[bn] = true;
                 que.add(new Num(bn, num.cnt+1));
             }
 
