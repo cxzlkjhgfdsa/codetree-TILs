@@ -6,7 +6,7 @@ public class Main {
         Scanner sc = new Scanner(System.in);
 
         int N = sc.nextInt();
-        boolean[] visited = new boolean[1000001];
+        boolean[] visited = new boolean[2000000];
 
         Queue<Num> que = new ArrayDeque<>();
         que.add(new Num(N, 0));
