@@ -34,7 +34,7 @@ public class Main {
 
                     if(cx < 0 || cx >= n || cy < 0 || cy >= n || visited[cx][cy])
                         continue;
-                    que.add(new Pos(cx, cy, p.t));
+                    que.add(new Pos(cx, cy, p.t+1));
                     visited[cx][cy] = true;
                 }
 
