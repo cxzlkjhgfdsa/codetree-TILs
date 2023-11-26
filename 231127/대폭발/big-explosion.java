@@ -22,22 +22,24 @@ public class Main {
         que.add(new Pos(r, c, 1));
         visited[r][c] = true;
 
-        while(!que.isEmpty()){
+          
+        for(int k = 1; k<=m; k++){
+            int size = que.size();
+            for(int j = 0; j < size; j++){
+                Pos p = que.poll();
 
-            Pos p = que.poll();
+                for(int i = 0; i < 4; i++){
+                    int cx = (int)(p.x + dx[i]*Math.pow(2, p.t-1));
+                    int cy = (int)(p.y + dy[i]*Math.pow(2, p.t-1));
 
-            if(p.t == m+1){
-                continue;
-            }
+                    if(cx < 0 || cx >= n || cy < 0 || cy >= n || visited[cx][cy])
+                        continue;
+                    que.add(new Pos(cx, cy, p.t));
+                    visited[cx][cy] = true;
+                }
 
-            for(int i = 0; i < 4; i++){
-                int cx = (int)(p.x + dx[i]*Math.pow(2, p.t-1));
-                int cy = (int)(p.y + dy[i]*Math.pow(2, p.t-1));
-
-                if(cx < 0 || cx >= n || cy < 0 || cy >= n || visited[cx][cy])
-                    continue;
-                que.add(new Pos(cx, cy, p.t+1));
-                visited[cx][cy] = true;
+                p.t++;
+                que.add(p);
             }
         }
 
