@@ -24,7 +24,11 @@ public class Main {
             }
         }
 
-        System.out.println(dp[M]);
+        if(dp[M] == 10000){
+            System.out.println(-1);
+        }else{
+            System.out.println(dp[M]);
+        }
 
 
     }
