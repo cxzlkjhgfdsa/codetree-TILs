@@ -7,22 +7,26 @@ public class Main {
         int n = sc.nextInt();
         int k = sc.nextInt();
 
-        Map<Integer, Integer> map = new HashMap<>();
+        Map<Long, Long> map = new HashMap<>();
 
         int ans = 0;
 
         for(int i = 0; i < n; i++){
-            map.put(i, sc.nextInt());            
+            long x = (long)sc.nextInt();
+
+            if(map.get(x) != null){
+                ans+= map.get(x);
+            }else{
+                long l = (long)(k - x);
+                if(map.get(l) != null){
+                    map.put(l, map.get(l)+1);
+                }else{
+                    map.put(l, 1L);
+                }
+            } 
         }
 
-        for(int i = 0; i < n; i++){
-            for(int j = i+1; j < n; j++){
-               
-                if(map.get(i) + map.get(j) == k)
-                    ans++;
-            }
-        }
-
+        
         System.out.println(ans);
     
     }
