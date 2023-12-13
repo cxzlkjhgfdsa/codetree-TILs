@@ -16,14 +16,15 @@ public class Main {
 
             if(map.get(x) != null){
                 ans+= map.get(x);
+            }
+
+            long l = (long)(k - x);
+            if(map.get(l) != null){
+                map.put(l, map.get(l)+1);
             }else{
-                long l = (long)(k - x);
-                if(map.get(l) != null){
-                    map.put(l, map.get(l)+1);
-                }else{
-                    map.put(l, 1L);
-                }
-            } 
+                map.put(l, 1L);
+            }
+            
         }
 
         
