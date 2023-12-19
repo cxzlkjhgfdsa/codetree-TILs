@@ -37,7 +37,7 @@ public class Main {
 
             for(int i = nums[0]; i <=nums[1]; i++){
                 for(int j = secNums[0]; j <= secNums[1]; j++){
-                    if(area[i][j] < 0)
+                    if(area[i][j] <= 0)
                         isPlus = false;
                     count++;
                 }
