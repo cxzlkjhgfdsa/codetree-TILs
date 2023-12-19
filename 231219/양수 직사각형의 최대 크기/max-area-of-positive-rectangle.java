@@ -49,7 +49,7 @@ public class Main {
             return;
         }
         
-        for(int i = start; i < n; i++){
+        for(int i = start; i < m; i++){
             secNums[cnt] = i;
             makeSquare(nums, cnt+1, i);
         }
