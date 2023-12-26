@@ -8,32 +8,49 @@ public class Main {
 
         int[] nums = new int[n];
 
+        TreeMap<Integer, Integer> tm = new TreeMap<>();
+        TreeSet<Integer> ts = new TreeSet<>();
+
+        double sum = 0;
+
         for(int i = 0; i < n; i++){
             nums[i] = sc.nextInt();
-        }
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+            if(tm.get(nums[i]) != null){
+                tm.put(nums[i], tm.get(nums[i]) + 1);
+            }else{
+                tm.put(nums[i] , 1);
+            }
+
+            ts.add(nums[i]);
+            sum+=nums[i];
+
+        }
 
         double max = 0;
 
+
+
         for(int k = 1; k <=n-2; k++){
+
+            int cur = nums[k-1];
             
-            for(int i = k; i < n; i++){
-                pq.add(nums[i]);
+            sum = sum - cur;
+
+            if(tm.get(cur) != 1){
+                tm.put(cur , tm.get(cur) - 1);
+            }else{
+                ts.remove(cur);
             }
 
-            pq.poll();
+            double test = sum - ts.first();
 
-            int size = pq.size();
+            test = test / (n-k-1);
 
-            double sum = 0;
-
-            while(!pq.isEmpty())
-                sum+=pq.poll();
             
-            sum = sum / size;
 
-            max = Math.max(sum, max);
+
+            max = Math.max(test, max);
         }
 
         System.out.printf("%.2f" ,  max);
