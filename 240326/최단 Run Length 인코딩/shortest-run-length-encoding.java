@@ -8,7 +8,7 @@ public class Main {
         String[] input = br.readLine().split("");
         int min = 100;
 
-        for(int i = 0; i < input.length - 1; i++){
+        for(int i = 0; i < input.length; i++){
             min = Math.min(min, Encoding(input));
             shift(input);
         }
