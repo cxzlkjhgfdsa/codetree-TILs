@@ -32,23 +32,23 @@ public class Main {
 
         int idx = 1;
         int cnt = 1;
-        String cur = input[0];
-        sb.append(cur);
+        sb.append(input[0]);
 
         while(idx < input.length){
             
-            if(input[idx].equals(cur)){
+            if(input[idx].equals(input[idx-1])){
                 cnt++;
             }else{
                 sb.append(cnt);
                 cnt = 1;
-                cur = input[idx];
-                sb.append(cur);
+                sb.append(input[idx]);
             }
             idx++;
 
         }
         sb.append(cnt);
+
+        //System.out.println(sb.toString());
 
         return sb.length();
     }
