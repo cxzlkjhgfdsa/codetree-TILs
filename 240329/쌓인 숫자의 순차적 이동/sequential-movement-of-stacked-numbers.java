@@ -47,6 +47,8 @@ public class Main {
                 max = Math.max(max, map[cx][cy].max);
 
             }
+            if(max == 0)
+                continue;
 
             int[] maxPos = mapped.get(max);
 
@@ -70,7 +72,7 @@ public class Main {
                 map[mx][my].list.add(next);
                 map[x][y].list.remove((Object) next);
             }
-
+            map[x][y].max = 0;
             for(Integer num : map[x][y].list){
                 map[x][y].max = Math.max(map[x][y].max, num);
             }
