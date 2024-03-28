@@ -36,7 +36,7 @@ public class Main {
             int x = pos[0];
             int y = pos[1];
 
-            int max = 0;
+            int max =  0;
 
             for(int j = 0; j < 8; j++){
                 int cx = x + dx[j];
@@ -55,10 +55,6 @@ public class Main {
             int mx = maxPos[0];
             int my = maxPos[1];;
 
-            if(map[mx][my].max < cur){
-                map[mx][my].max = cur;
-            }
-
 
             int idx = map[x][y].list.indexOf((Object) cur);
 
@@ -66,6 +62,8 @@ public class Main {
 
             for(int j = idx; j < size; j++){
                 int next = map[x][y].list.get(idx);
+                if(map[mx][my].max < next)
+                    map[mx][my].max = next;
                 mapped.put(next, maxPos);
                 map[mx][my].list.add(next);
                 map[x][y].list.remove((Object) next);
