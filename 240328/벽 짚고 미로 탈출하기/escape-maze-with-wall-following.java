@@ -13,24 +13,22 @@ public class Main {
         int dir = 0;  // 0 우 , 1 하, 2 좌 , 3 상
 
         String[][] map = new String[N][N];
-        boolean[][] visited = new boolean[N][N];
+        int[][] visited = new int[N][N];
 
         for(int i = 0; i < N; i++){
             map[i] = br.readLine().split("");
         }
 
         int cnt = 0;
-        boolean changeDir = false;
 
         while(true){
 
-            if(visited[x][y] && !changeDir){
+            if(visited[x][y]>=4){
                 cnt = -1;
                 break;
             }
-            
-            changeDir = false;
-            visited[x][y] = true;
+
+            visited[x][y]++;
 
             if(dir == 0){
                 if(y + 1== N){
@@ -40,7 +38,6 @@ public class Main {
 
                 if(map[x][y+1].equals("#")){
                     dir = 3;
-                    changeDir = true;
                     continue;
                 }
 
@@ -61,7 +58,6 @@ public class Main {
 
                 if(map[x+1][y].equals("#")){
                     dir = 0;
-                    changeDir = true;
                     continue;
                 }
 
@@ -83,7 +79,6 @@ public class Main {
 
                 if(map[x][y-1].equals("#")){
                     dir = 1;
-                    changeDir = true;
                     continue;
                 }
 
@@ -104,7 +99,6 @@ public class Main {
 
                 if(map[x-1][y].equals("#")){
                     dir = 2;
-                    changeDir = true;
                     continue;
                 }
 
