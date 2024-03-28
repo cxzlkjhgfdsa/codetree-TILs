@@ -55,10 +55,8 @@ public class Main {
             int mx = maxPos[0];
             int my = maxPos[1];;
 
-            mapped.put(cur, maxPos);
-
-            if(map[mx][my].max < max){
-                map[mx][my].max = max;
+            if(map[mx][my].max < cur){
+                map[mx][my].max = cur;
             }
 
 
