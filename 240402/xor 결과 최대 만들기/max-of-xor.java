@@ -3,6 +3,7 @@ import java.util.*;
 public class Main {
 
     static List<Integer> list;
+    static int[] nums;
     static int max;
 
     public static void main(String[] args) {
@@ -13,7 +14,12 @@ public class Main {
         int n = sc.nextInt();
         int m = sc.nextInt();
 
-        comb(n, m, 0, 1);
+        nums = new int[n];
+        for(int i = 0; i < n; i++){
+            nums[i] = sc.nextInt();
+        }
+
+        comb(n, m, 0, 0);
 
         System.out.println(max);
     }
@@ -29,8 +35,8 @@ public class Main {
         }
 
 
-        for(int i = start; i <= n; i++){
-            list.add(i);
+        for(int i = start; i < n; i++){
+            list.add(nums[i]);
             comb(n, m, cnt+1, i+1);
             list.remove(list.size() - 1);
         }
