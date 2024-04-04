@@ -16,6 +16,23 @@ public class Main {
     }
 
     private static void minPerm(int n, int cnt){
+        if(cnt / 2 >= 2){
+            int idx = cnt / 2;
+            for(int i = 2; i <= idx; i++){
+                boolean check = true;
+                for(int j = 0; j < i; j++){
+                     if(cnt == 8){
+                        //System.out.print(nums[cnt-j-1] +" "+nums[cnt-j-i-1]+" ");
+                    }
+                    if(nums[cnt-j-1] != nums[cnt-j-i-1])
+                        check = false;
+                }
+                //System.out.println();
+                if(check)
+                    return;
+                }
+            
+        }
         
         if(n == cnt){
             for(Integer i : nums){
@@ -27,18 +44,6 @@ public class Main {
         for(int i = 4; i <= 6; i++){
             if(nums[cnt-1] == i)
                 continue;
-            if(cnt -3 >= 0){
-                if(nums[cnt - 1] == nums[cnt - 3]){
-                    if(nums[cnt-2] == i)
-                        continue;
-                }
-            }
-
-            if(cnt - 5 >= 0){
-                if(nums[cnt-5] == nums[cnt -2] && nums[cnt-4] == nums[cnt-1])
-                    if(nums[cnt-3] == i)
-                        continue;
-            }
             nums[cnt] = i;
             minPerm(n ,cnt+1);
         }
