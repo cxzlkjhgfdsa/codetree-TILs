@@ -33,7 +33,7 @@ public class Main {
 
         for(int i = 1; i < N - 1; i++){
             if(str[i].equals("O")){
-                cnt += (dpL[i] * dpR[i]);
+                cnt += (dpL[i] * dpR[i+1]);
             }
         }
 
