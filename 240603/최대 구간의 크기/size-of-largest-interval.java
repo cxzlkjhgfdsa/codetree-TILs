@@ -27,8 +27,12 @@ public class Main {
             //System.out.println(sumVal);
 
             if(sumVal == 0){
-                max = Math.max(max, sum);
-                sum = 0;
+                if(i+1 < list.size() && list.get(i+1).s == list.get(i).s){
+
+                }else{
+                    max = Math.max(max, sum);
+                    sum = 0;
+                }
             }
         }
 
