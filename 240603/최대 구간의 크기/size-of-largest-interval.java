@@ -49,6 +49,9 @@ public class Main {
 
         @Override
         public int compareTo(Point p){
+            if(this.s == p.s){
+                return this.v - p.v;
+            }
             return this.s - p.s;
         }
     }
