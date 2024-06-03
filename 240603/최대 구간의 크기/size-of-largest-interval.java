@@ -19,17 +19,21 @@ public class Main {
         int sumVal = 0;
 
         sumVal += list.get(0).v;
+        boolean start = false;
 
         for(int i = 1; i < list.size(); i++){
             sumVal += list.get(i).v;
-            sum += list.get(i).s - list.get(i-1).s;
+            if(!start)
+                sum += list.get(i).s - list.get(i-1).s;
 
             //System.out.println(sumVal);
+            start = false;
 
             if(sumVal == 0){
                 if(i+1 < list.size() && list.get(i+1).s == list.get(i).s){
 
                 }else{
+                    start = true;
                     max = Math.max(max, sum);
                     sum = 0;
                 }
