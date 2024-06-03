@@ -1,0 +1,62 @@
+import java.util.*;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int n = sc.nextInt();
+        List<Point> list = new ArrayList<>();
+
+        for(int i = 0; i < n; i++){
+            list.add(new Point(sc.nextInt(), 1));
+            list.add(new Point(sc.nextInt(), -1));
+        }
+
+        Collections.sort(list);
+
+        int ans = 0;
+        int sum = 0;
+        int sumVal = 0;
+
+        sumVal += list.get(0).v;
+        boolean start = false;
+
+        for(int i = 1; i < list.size(); i++){
+            sumVal += list.get(i).v;
+            if(!start)
+                sum += list.get(i).s - list.get(i-1).s;
+
+            //System.out.println(sumVal);
+            start = false;
+
+            if(sumVal == 0){
+                if(i+1 < list.size() && list.get(i+1).s == list.get(i).s){
+
+                }else{
+                    start = true;
+                    ans += sum;
+                    sum = 0;
+                }
+            }
+        }
+
+        System.out.println(ans);
+
+    }
+
+    private static class Point implements Comparable<Point>{
+        int s, v;
+        public Point(int s, int v){
+            this.s = s;
+            this.v = v;
+        }
+
+        @Override
+        public int compareTo(Point p){
+            if(this.s == p.s){
+                return this.v - p.v;
+            }
+            return this.s - p.s;
+        }
+    }
+}
