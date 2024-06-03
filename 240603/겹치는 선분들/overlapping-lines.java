@@ -33,11 +33,11 @@ public class Main {
         int sumVal = 0;
         int ans = 0;
 
-        for(int i = 0; i < list.size(); i++){
+        for(int i = 0; i < list.size() - 1; i++){
             //System.out.println(list.get(i).s + " " + list.get(i).v);
             sumVal += list.get(i).v;
             if(sumVal >= K)
-                ans++;
+                ans += list.get(i+1).s - list.get(i).s;
         }
 
         System.out.println(ans);
