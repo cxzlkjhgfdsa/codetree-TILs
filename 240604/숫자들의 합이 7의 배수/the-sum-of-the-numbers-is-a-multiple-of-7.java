@@ -6,27 +6,27 @@ public class Main {
 
         int N = sc.nextInt();
 
-        long[] dp = new long[N+1];
+        int[] dp = new int[N+1];
+        int[][] idx = new int[7][2];
+        for(int i = 0; i < 7; i++){
+            idx[i][0] = Integer.MAX_VALUE;
+        }
 
         for(int i = 1; i <= N; i++){
             
             int k = sc.nextInt();
 
             dp[i] = (dp[i-1] + k)%7;
+
+            idx[dp[i]][0] = Math.min(idx[dp[i]][0], i);
+            idx[dp[i]][1] = Math.max(idx[dp[i]][1], i);
         }
 
-        int max = 0;
+        int ans = 0;
 
-        for(int i = N; i >= 2; i--){
-            for(int j = 1; j <= N; j++){
-                if(i - j + 1 < max) continue;
-                if(dp[i] == dp[j-1])
-                    max = Math.max(max, i-j+1);
-                
-            }
+        for(int i = 0; i < 7; i++){
+            ans = Math.max(ans, idx[i][1] - idx[i][0]);
         }
-
-        System.out.println(max);
-        
+        System.out.println(ans);
     }
 }
