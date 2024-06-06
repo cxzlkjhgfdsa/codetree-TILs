@@ -31,7 +31,7 @@ public class Main {
                 }
                 end++;
             }else{
-                map.put(arr[start], map.get(arr[start]-1));
+                map.put(arr[start], map.get(arr[start])-1);
                 start++;
             }
 
