@@ -6,26 +6,26 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         String[] input;
 
-        int m = Integer.parseInt(br.readLine());
+        long m = Long.parseLong(br.readLine());
 
-        int[] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        long [] arr = Arrays.stream(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
 
-        int min = Integer.MAX_VALUE;
-        int max = 0;
+        long min = Integer.MAX_VALUE;
+        long max = 0;
 
-        for(int tc = arr[0]; tc <= arr[1]; tc++){
+        for(long tc = arr[0]; tc <= arr[1]; tc++){
             
-            int find = tc;
+            long find = tc;
 
-            int left = 0;
-            int right = m+1;
-            int cnt = 0;
+            long left = 0;
+            long right = m+1;
+            long cnt = 0;
 
             while(left <= right){
 
                 cnt++;
                 
-                int mid = (left + right)/2;
+                long mid = (left + right)/2;
 
                 if(mid == find){
                     break;
