@@ -6,20 +6,20 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringBuilder sb = new StringBuilder();
 
-        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        PriorityQueue<Long> pq = new PriorityQueue<>();
 
         int n = Integer.parseInt(br.readLine());
 
-        int [] arr = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
+        long [] arr = Arrays.stream(br.readLine().split(" ")).mapToLong(Long::parseLong).toArray();
 
-        for(Integer i : arr){
+        for(Long i : arr){
             pq.add(i);
             if(pq.size() < 3){
                 sb.append(-1).append("\n");
             }else{
-                int a = pq.poll();
-                int b = pq.poll();
-                int c = pq.poll();
+                long a = pq.poll();
+                long b = pq.poll();
+                long c = pq.poll();
 
                 sb.append(a*b*c).append("\n");
                 pq.add(a);
