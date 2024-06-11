@@ -4,39 +4,25 @@ public class Main {
     public static void main(String[] args) {
         
         Scanner sc = new Scanner(System.in);
-        PriorityQueue<Num> pq = new PriorityQueue<>();
+        StringBuilder sb = new StringBuilder();
 
         int n = sc.nextInt();
 
+        Num[] arr = new Num[n];
+        
         for(int i = 0; i < n; i++){
-            pq.add(new Num(sc.next()));
+            arr[i] = new Num(sc.next());
         }
 
-        String ans = "";
+        Arrays.sort(arr);
 
-        while(!pq.isEmpty()){
-            if(pq.size() >= 2){
-
-                Num a = pq.poll();
-                Num b = pq.poll();
-
-                long x = Long.parseLong(a.num+b.num);
-                long y = Long.parseLong(b.num+a.num);
-
-                if(x > y){
-                    ans += a.num;
-                    pq.add(b);
-                }else{
-                    ans += b.num;
-                    pq.add(a);
-                }
-
-            }else{
-                ans += pq.poll().num;
-            }
+        for(Num k : arr){
+            sb.append(k.num);
         }
+        
 
-        System.out.println(ans);
+        System.out.println(sb);
+  
 
 
     }
@@ -49,14 +35,14 @@ public class Main {
 
         @Override
         public int compareTo(Num n){
-            int minSize = Math.min(this.num.length(), n.num.length());
+            
+            Long a = Long.parseLong(this.num + n.num);
+            Long b = Long.parseLong(n.num + this.num);
 
-            for(int i = 0; i < minSize; i++){
-                if(this.num.charAt(i) == n.num.charAt(i))
-                    continue;
-                return n.num.charAt(i) - this.num.charAt(i);
-            }
-            return this.num.length() - n.num.length();
+            if(a > b)
+                return -1;
+            else
+                return 1;
         }
     }
 }
