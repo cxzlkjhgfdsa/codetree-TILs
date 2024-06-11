@@ -17,18 +17,18 @@ public class Main {
         while(!pq.isEmpty()){
             if(pq.size() >= 2){
 
-                String a = pq.poll().num;
-                String b = pq.poll().num;
+                Num a = pq.poll();
+                Num b = pq.poll();
 
-                long x = Long.parseLong(a+b);
-                long y = Long.parseLong(b+a);
+                long x = Long.parseLong(a.num+b.num);
+                long y = Long.parseLong(b.num+a.num);
 
                 if(x > y){
-                    ans += a;
-                    pq.add(new Num(b));
+                    ans += a.num;
+                    pq.add(b);
                 }else{
-                    ans += b;
-                    pq.add(new Num(a));
+                    ans += b.num;
+                    pq.add(a);
                 }
 
             }else{
