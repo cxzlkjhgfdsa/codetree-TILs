@@ -24,9 +24,11 @@ public class Main {
                 long y = Long.parseLong(b+a);
 
                 if(x > y){
-                    ans += a+b;
+                    ans += a;
+                    pq.add(new Num(b));
                 }else{
-                    ans += b+a;
+                    ans += b;
+                    pq.add(new Num(a));
                 }
 
             }else{
