@@ -3,36 +3,34 @@ import java.util.*;
 public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+
         int n = sc.nextInt();
 
-        String[] start = sc.next().split("");
-        String[] end = sc.next().split("");
+        String start = sc.next();
+        String end = sc.next();
 
+        int cnt = 0;
         int ans = 0;
-        int idx = 0;
 
-        for(int i = n-1; i >=0; i--){
-            idx++;
+        for(int i = 0; i < n; i++){
             
-            if(!start[i].equals(end[i]) || idx == 4){
-                ans++;
-                idx = 0;
-                change(start, i);
+            if(start.charAt(i) != end.charAt(i)){
+                if(cnt == 0){
+                    ans++;
+                    cnt++;
+                }else if(cnt == 4){
+                    ans++;
+                    cnt = 1;
+                }else{
+                    cnt++;
+                }
+            }else{
+                cnt = 0;
             }
 
         }
 
         System.out.println(ans);
-
-    }
-
-    private static void change(String[] str, int idx){
-        for(int i = idx; i >=0; i--){
-            if(str[i].equals("G")){
-                str[i] = "H";
-            }else{
-                str[i] = "G";
-            }
-        }
+        
     }
 }
